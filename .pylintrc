@@ -1,0 +1,17 @@
+[MESSAGES CONTROL]
+disable =
+    missing-docstring,
+    too-few-public-methods,
+    import-error,           
+    too-many-arguments,
+    too-many-positional-arguments,
+    duplicate-code,         
+    logging-fstring-interpolation,
+    redefined-outer-name,   
+    invalid-name,           
+    wrong-import-position,  
+    unused-import  
+
+[FORMAT]
+max-line-length = 88
+         

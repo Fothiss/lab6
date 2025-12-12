@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - rabbitmq
+    environment:
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672
+  
+  consumer:
+    build: .
+    depends_on:
+      - rabbitmq
+      - app
+    command: uv run python -m app.messaging.consumer
+    restart: "on-failure:5"
+
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+      start_period: 30s

@@ -1,0 +1,43 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: 25.12.0
+    hooks:
+      - id: black
+        name: black
+        exclude: |
+          (?x)^(
+            \.git|
+            \.venv|
+            __pycache__|
+            \.pytest_cache|
+            backup_before_reorg
+          )
+
+  - repo: https://github.com/pycqa/isort
+    rev: 7.0.0
+    hooks:
+      - id: isort
+        name: isort
+        exclude: |
+          (?x)^(
+            \.git|
+            \.venv|
+            __pycache__|
+            \.pytest_cache|
+            backup_before_reorg
+          )
+
+  - repo: https://github.com/pycqa/pylint
+    rev: v4.0.4
+    hooks:
+      - id: pylint
+        name: pylint
+        exclude: |
+          (?x)^(
+            \.git|
+            \.venv|
+            __pycache__|
+            \.pytest_cache|
+            backup_before_reorg
+          )
+        args: [--rcfile=.pylintrc]
