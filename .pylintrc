@@ -13,5 +13,5 @@ disable =
     unused-import  
 
 [FORMAT]
-max-line-length = 88
+max-line-length = 100
          
